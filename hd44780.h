@@ -3,6 +3,10 @@
 
 #include "hd44780_settings.h"
 
+#ifndef HD44780_DELAY_1640US
+	#error Define HD44780_DELAY_1640US() to delay for 1.64ms
+#endif
+
 #ifndef HD44780_DATA
 	#error Define HD44780_DATA as LATx or PORTx
 #endif

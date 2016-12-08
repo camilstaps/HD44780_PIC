@@ -68,6 +68,7 @@ inline void hd44780_set_address(unsigned char addr)
 inline void hd44780_clear(void)
 {
 	hd44780_put_cmd(0x01);
+	HD44780_DELAY_1640US();
 }
 
 void hd44780_init_ports(void)
@@ -99,13 +100,7 @@ void hd44780_init(void)
 
 	hd44780_init_ports();
 
-#asm
-	nop
-	nop
-	nop
-	nop
-	nop
-#endasm
+	HD44780_DELAY_1640US();
 
 #ifdef HD44780_DUAL
 	for (device_counter = 0; device_counter <= 1; device_counter++)
